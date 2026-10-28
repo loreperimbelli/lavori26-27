@@ -1,1 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Calcolo IP</title>
+</head>
+<body>
 
+<h2>Indirizzo IP</h2>
+
+IP: <input type="text" id="ip" value="192.168.1.10"><br><br>
+
+Prefix Length: <input type="number" id="pl" value="24" min="0" max="32"><br><br>
+
+<button onclick="calcola()">Calcola</button>
+
+<p id="risultato"></p>
+
+<script>
+function calcola() {
+    let ip = document.getElementById("ip").value.split(".");
+    let pl = Number(document.getElementById("pl").value);
+
+    if (ip.length != 4 || ip.some(n => n === "" || !Number.isInteger(Number(n)) || Number(n) < 0 || Number(n) > 255) ||
+        !Number.isInteger(pl) || pl < 0 || pl > 32) {
+        document.getElementById("risultato").innerHTML = "Valori non validi!";
+        return;
+    }
+
+    let binario = ip.map(n =>
+        Number(n).toString(2).padStart(8, "0")
+    ).join(".");
+
+    let mask = [];
+    for (let i = 0; i < 4; i++) {
+        let bit = Math.max(0, Math.min(8, pl - i * 8));
+        mask.push(256 - Math.pow(2, 8 - bit));
+    }
+
+    document.getElementById("risultato").innerHTML =
+        "IP binario: " + binario + "<br>" +
+        "Subnet mask: " + mask.join(".");
+}
+</script>
+
+</body>
+</html>
