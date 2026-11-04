@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inserimento dati anagrafici</title>
+</head>
+<body>
+
+<h2>Inserisci i tuoi dati</h2>
+
+<form id="form">
+
+    Nome: <input type="text" id="nome"><br><br>
+
+    Cognome: <input type="text" id="cognome"><br><br>
+
+    Età: <input type="number" id="eta"><br><br>
+
+    Sesso:
+    <input type="radio" name="sesso" value="Maschio"> Maschio
+    <input type="radio" name="sesso" value="Femmina"> Femmina
+    <br><br>
+
+    Indirizzo: <input type="text" id="indirizzo"><br><br>
+
+    Città: <input type="text" id="citta"><br><br>
+
+    Provincia:
+    <select id="provincia">
+        <option>Milano</option>
+        <option>Roma</option>
+        <option>Torino</option>
+        <option>Napoli</option>
+    </select>
+    <br><br>
+
+    Sport:
+    <input type="checkbox" name="sport" value="Calcio"> Calcio
+    <input type="checkbox" name="sport" value="Nuoto"> Nuoto
+    <input type="checkbox" name="sport" value="Tennis"> Tennis
+    <br><br>
+
+    Commenti:<br>
+    <textarea id="commenti"></textarea>
+    <br><br>
+
+    <button type="button" onclick="stampa()">Invia</button>
+
+</form>
+
+<h2>Dati inseriti</h2>
+
+<table border="1" id="tabella"></table>
+
+<script>
+
+function stampa() {
+
+    let nome = document.getElementById("nome").value;
+    let cognome = document.getElementById("cognome").value;
+    let eta = document.getElementById("eta").value;
+    let sesso = document.querySelector('input[name="sesso"]:checked');
+    let indirizzo = document.getElementById("indirizzo").value;
+    let citta = document.getElementById("citta").value;
+    let provincia = document.getElementById("provincia").value;
+    let commenti = document.getElementById("commenti").value;
+
+    let sport = document.querySelectorAll('input[name="sport"]:checked');
+
+    let elencoSport = "";
+
+    sport.forEach(function(s) {
+        elencoSport += s.value + " ";
+    });
+
+    if (!sesso) {
+        alert("Seleziona il sesso!");
+        return;
+    }
+
+    let dati = [
+        ["Nome", nome],
+        ["Cognome", cognome],
+        ["Età", eta],
+        ["Sesso", sesso.value],
+        ["Indirizzo", indirizzo],
+        ["Città", citta],
+        ["Provincia", provincia],
+        ["Sport", elencoSport],
+        ["Commenti", commenti]
+    ];
+
+    let tabella = document.getElementById("tabella");
+
+    tabella.innerHTML = "";
+
+    dati.forEach(function(d) {
+        tabella.innerHTML +=
+            "<tr><td>" + d[0] + "</td><td>" + 
+            d[1] + "</td></tr>";
+    });
+
+}
+
+</script>
+
+</body>
+</html>
