@@ -1,36 +1,158 @@
 
+
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <title>I miei progetti GitHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il mio Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background: linear-gradient(135deg, #1e293b, #312e81);
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        header h1 span {
+            color: #38bdf8;
+        }
+
+        header p {
+            color: #cbd5e1;
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 30px #0005;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .card a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background: #2563eb;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card a:hover {
+            background: #38bdf8;
+            color: #0f172a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #94a3b8;
+            border-top: 1px solid #334155;
+            margin-top: 60px;
+        }
+
+    </style>
 </head>
 
 <body>
 
-    <h1>I miei lavori</h1>
+    <header>
+        <h1>Ciao, sono <span>Il tuo nome</span> </h1>
+        <p>Benvenuto nel mio portfolio personale!</p>
+        <p>Qui puoi trovare alcuni dei miei progetti e lavori.</p>
+    </header>
 
-    <p>Ecco alcuni dei miei progetti:</p>
+    <div class="container">
 
-    <ul>
-        <li>
-            <a href="https://github.com/TUO-USERNAME/progetto1">
-                Progetto 1
-            </a>
-        </li>
+        <h2 class="section-title">🚀 I miei progetti GitHub</h2>
 
-        <li>
-            <a href="https://github.com/TUO-USERNAME/progetto2">
-                Progetto 2
-            </a>
-        </li>
+        <div class="projects">
 
-        <li>
-            <a href="https://github.com/TUO-USERNAME/progetto3">
-                Progetto 3
-            </a>
-        </li>
-    </ul>
+            <div class="card">
+                <h3>💻 Progetto 1</h3>
+                <p>Descrizione del mio primo progetto. Qui puoi spiegare cosa hai realizzato.</p>
+                <a href="https://github.com/TUO-USERNAME/progetto1"
+                   target="_blank">Visualizza progetto →</a>
+            </div>
+
+            <div class="card">
+                <h3> Progetto 2</h3>
+                <p>Descrizione del mio secondo progetto e delle tecnologie utilizzate.</p>
+                <a href="https://github.com/TUO-USERNAME/progetto2"
+                   target="_blank">Visualizza progetto →</a>
+            </div>
+
+            <div class="card">
+                <h3> Progetto 3</h3>
+                <p>Descrizione del mio terzo progetto. Aggiungi qui i dettagli.</p>
+                <a href="https://github.com/TUO-USERNAME/progetto3"
+                   target="_blank">Visualizza progetto →</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+      
+    </footer>
 
 </body>
 </html>
+
